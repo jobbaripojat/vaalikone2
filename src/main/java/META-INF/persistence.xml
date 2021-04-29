@@ -4,10 +4,10 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	
 <!-- The name of the persistence unit: here jpa247. This is used in the application code -->	
-	<persistence-unit name="jpa247">
+	<persistence-unit name="questions">
 <!-- All the classes, which belong to the peristence unit and so can be persisted using JPA
 	Here there is just one: app.Fish. All the other should be added in the same way. -->	
-	<class>data.Fish</class>
+	<class>app.Question</class>
 <!-- If using MySQL 5.7 or newer -->
 <!--  
 	as a root user in the MySQL command prompt give the commands:
@@ -24,10 +24,9 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org
 <!--  ddlGeneration == database tables will be created, if they do not exist. The database show be created beforehand--> 
     <properties>
 	    <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-	    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpafish247" />
+	    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/vaalikone" />
 	    <property name="javax.persistence.jdbc.user" value="root" />
 	    <property name="javax.persistence.jdbc.password" value="pswd" />
-	    <property name="eclipselink.ddl-generation" value="create-tables" />
 	</properties>
 	
 	</persistence-unit>
