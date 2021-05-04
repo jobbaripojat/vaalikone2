@@ -8,6 +8,31 @@
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+    
+	    function sendData(){
+	    	//Create a new Javascript object
+	    	var Question =new Object();
+	    	Question.id=document.getElementById("id").value;
+	    	Question.question=document.getElementById("question").value;
+	    	
+	    	var jsonPrey=JSON.stringify(Question);
+	    	var xhttp = new XMLHttpRequest();
+	    	
+	    	xhttp.onreadystatechange = function() {
+	    	  if (this.readyState == 4 && this.status == 200) {
+	    	   document.getElementById("responseView").innerHTML = this.responseText;
+	    	   var returned=JSON.parse(this.responseText);
+	    	   document.getElementById("inparts").innerHTML="id="+returned.id+" question="+returned.question+";
+	    	  }
+	    	};
+	    	
+	    	xhttp.open("POST","./vaalikone/addquestions/addquestion",true);
+	    	xhttp.setRequestHeader("Content-type","application/json");
+	    	xhttp.send(jsonQuestion);
+	    }
+	    
+    
+    
     </script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
@@ -18,15 +43,17 @@
         <div class="row align-items-center vh-100">
             <div class="col-4"></div>
             <div class="col-4 text-center">
-                <form action="vaalikone/addquestions/addquestion" method="POST">
-                    <div class="row g-3">
-                        <label for="name" class="control-label">Enter new question here</label>
-                        <input type="text" class="form-control" name="question" required>
-                        <br>
-                    </div>
-                    <br>
-                    <input class="btn btn-primary" type="submit" value="Insert question">
-                </form>
+						<h2>Fill in the information</h2>
+						<form action="/vaalikone/addquestions/addquestion" method='post'>
+						Question: <input id='question' type='text' name='question' value='' placeholder='New question'><br>
+						Question_id: <input id='id' type='text' name='id' value='' placeholder='new id'><br>
+						<input type='submit' name='ok' value='Send'><br>
+						</form>
+						
+						<p id='responseView'>The response will be shown here!
+						</p>
+						<p id='inparts'>The response in parts will be shown here!
+						</p>
             </div>
             <div class="col-4"></div>
         </div>

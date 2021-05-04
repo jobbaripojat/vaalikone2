@@ -18,22 +18,22 @@ public class EditQuestions {
 	
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("questions");
 	
-	@POST
+	@GET
 	@Path("/getquestion")
 	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes("application/x-www-form-urlencoded")
-	public Question readOneQuestion(@FormParam("QUESTION_ID") int id) {
+	public Question readOneQuestion(@QueryParam("question_id") int id) {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
 		Question q=em.find(Question.class, id);
 		em.getTransaction().commit();
+		System.out.println(id);
 		System.out.println("Haloo");
+		System.out.println(q);
 		return q;
 	}
 	@PUT
 	@Path("/updatequestion")
 	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
 	public List<Question> updateQuestion(Question Question) {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();

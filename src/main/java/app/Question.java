@@ -43,4 +43,12 @@ public class Question {
 		
 	}
 	
+	public Question(int QUESTION_ID, String QUESTION) {
+		
+	}
+	
+	public String toString() {
+		return QUESTION_ID+" "+QUESTION;
+	}
+	
 }
