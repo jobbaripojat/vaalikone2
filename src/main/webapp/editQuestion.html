@@ -28,7 +28,16 @@
 				<form action="vaalikone/editquestions/getquestion" method="GET">
 					<div class="row g-3">
 						<label for="name" class="control-label">Enter the
-							questionID here for editing.</label> <input type="text"
+							question ID here for editing.</label> <input type="text"
+							class="form-control" name="question_id" required> <br>
+					</div>
+					<input class="btn btn-primary" type="submit" value="Send">
+				</form>
+				
+				<form action="vaalikone/deletequestions/deletequestion" method="GET">
+					<div class="row g-3">
+						<label for="name" class="control-label">Enter the
+							question ID here for removal.</label> <input type="text"
 							class="form-control" name="question_id" required> <br>
 					</div>
 					<input class="btn btn-primary" type="submit" value="Send">

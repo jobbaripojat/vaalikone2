@@ -19,16 +19,16 @@ public class Question {
 		return QUESTION_ID;
 	}
 	
-	public void setQUESTION_ID(int qUESTION_ID) {
-		QUESTION_ID = qUESTION_ID;
+	public void setQUESTION_ID(int QUESTION_ID) {
+		this.QUESTION_ID = QUESTION_ID;
 	}
 	
 	public String getQUESTION() {
 		return QUESTION;
 	}
 	
-	public void setQUESTION(String qUESTION) {
-		QUESTION = qUESTION;
+	public void setQUESTION(String QUESTION) {
+		this.QUESTION = QUESTION;
 	}
 	
 	public Question() {
@@ -44,7 +44,8 @@ public class Question {
 	}
 	
 	public Question(int QUESTION_ID, String QUESTION) {
-		
+		this.QUESTION_ID=QUESTION_ID;
+		this.QUESTION=QUESTION;
 	}
 	
 	public String toString() {
