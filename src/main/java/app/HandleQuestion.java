@@ -51,7 +51,7 @@ public class HandleQuestion extends HttpServlet {
 			return;
 		}
 		request.setAttribute("questionlist", list);
-		RequestDispatcher rd = request.getRequestDispatcher("questions.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("editableQuestions.jsp");
 		rd.forward(request, response);
 	}
 
