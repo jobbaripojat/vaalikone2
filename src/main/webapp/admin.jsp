@@ -15,16 +15,6 @@
 </head>
 
 <body>
-    <%
-String userName = null;
-Cookie[] cookies = request.getCookies();
-if(cookies !=null){
-for(Cookie cookie : cookies){
-	if(cookie.getName().equals("username")) userName = cookie.getValue();
-}
-}
-if(userName == null) response.sendRedirect("login.jsp");
-%>
     <div class="flex-container mt-3">
         <div class="row mx-auto">
             <div class="col-sm float-left">
@@ -90,7 +80,7 @@ if(userName == null) response.sendRedirect("login.jsp");
                 </form>
             </div>
             <div class="col-1">
-                <form action="/logout" method="POST">
+                <form action="/logout" method="GET">
                     <input class="btn btn-danger w-100" type="submit" value="Logout">
                 </form>
                 <br>

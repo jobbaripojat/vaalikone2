@@ -1,11 +1,17 @@
 package vaalikone.app;
 
+import javax.servlet.FilterChain;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -26,7 +32,21 @@ public class AdminController extends HttpServlet {
 	public AdminController() {
 
 	}
+  
+  public void doFilter(ServletRequest req, ServletResponse res,
+            FilterChain chain) throws ServletException, IOException {
 
+          HttpServletRequest request = (HttpServletRequest) req;
+            HttpServletResponse response = (HttpServletResponse) res;
+            HttpSession session = request.getSession();
+
+            if (session == null || session.getAttribute("User") == null) {
+                  response.sendRedirect(request.getContextPath() + "/index.xhtml"); // No logged-in user found, so redirect to login page.
+            } else {
+                chain.doFilter(req, res); // Logged-in user found, so just continue request.
+            }
+  }
+  
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {

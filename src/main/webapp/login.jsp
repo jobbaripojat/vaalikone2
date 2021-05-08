@@ -20,7 +20,7 @@
         <div class="row align-items-center vh-100">
             <div class="col-4"></div>
             <div class="col-4 text-center">
-                <form action="/login" method="POST">
+                <form action="/checkuser" method="POST">
                     <div class="row g-3">
                         <label for="name" class="control-label">USERNAME</label>
                         <input type="text" class="form-control" name="username" required>
