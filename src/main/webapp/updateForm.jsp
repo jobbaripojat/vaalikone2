@@ -19,7 +19,7 @@ for(Cookie cookie : cookies){
 if(userName == null) response.sendRedirect("login.jsp");
 %>
 <form action='../updatequestion' method='post'>
-<input type='text' name='id' value='${requestScope.question.QUESTION_ID } ' readonly>
+<input type='text' name='id' value='${requestScope.question.QUESTION_ID }' readonly>
 <input type='text' name='question' value='${requestScope.question.QUESTION }'>
 <input type='submit' name='ok' value='OK'>
 </form>
