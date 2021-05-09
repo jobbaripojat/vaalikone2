@@ -24,16 +24,6 @@
 </head>
 
 <body>
-    <%
-String userName = null;
-Cookie[] cookies = request.getCookies();
-if(cookies !=null){
-for(Cookie cookie : cookies){
-	if(cookie.getName().equals("username")) userName = cookie.getValue();
-}
-}
-if(userName == null) response.sendRedirect("login.jsp");
-%>
 	<div class="container mt-5">
 		<div class="row">
 			<div class="col-3"></div>
