@@ -25,7 +25,7 @@ import javax.servlet.http.HttpSession;
 				DispatcherType.INCLUDE, 
 				DispatcherType.ERROR
 		}
-		, urlPatterns = { "/jsp/protected.jsp","/admin.jsp", "/rest/signinneeded/*" })
+		, urlPatterns = { "/jsp/protected.jsp","/admin.jsp", "/rest/signinneeded/*", "/addquestion", "/deletequestion", "/updatequestion", "/readquestion", "/readtoupdatequestion" })
 public class AuthenticationFilter implements Filter {
 
     /**

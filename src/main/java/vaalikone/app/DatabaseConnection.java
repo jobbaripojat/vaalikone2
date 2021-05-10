@@ -12,9 +12,9 @@ import java.util.ArrayList;
  * Java class DatabaseConnection
  */
 public class DatabaseConnection {
-	static String dbURL = "jdbc:mysql://localhost:3306/vaalikone";
+	static String dbURL = "jdbc:mysql://localhost/vaalikone";
 	static String username = "root";
-	static String password = "pswd";
+	static String password = "Antti";
 
 	Connection dbConn;
 

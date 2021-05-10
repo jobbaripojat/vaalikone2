@@ -22,35 +22,12 @@ public class AdminLogout extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-//		Cookie loginCookie = null;
-//		Cookie[] cookies = request.getCookies();
-//		HttpSession sessio=request.getSession(true);
-//		sessio.invalidate();
-//		sessio=null;
-//		response.sendRedirect("/login.jsp");
-		
 		HttpSession session = request.getSession();
 		if (!session.isNew()) {
 		    session.invalidate();
 		    session = request.getSession();
 		    response.sendRedirect("/login.jsp");
 		}
-		
-		
-		
-//		if (cookies != null) {
-//			for (Cookie cookie : cookies) {
-//				if (cookie.getName().equals("username")) {
-//					loginCookie = cookie;
-//					break;
-//				}
-//			}
-//		}
-//		if (loginCookie != null) {
-//			loginCookie.setMaxAge(0);
-//			response.addCookie(loginCookie);
-//		}
-//		response.sendRedirect("login.jsp");
 
 	}
 
